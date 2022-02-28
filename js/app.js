@@ -1,5 +1,6 @@
 /* Search Button */
 document.getElementById('search-button').addEventListener('click', function() {
+    showSpinner();
     const searchInput = document.getElementById('search-input');
     const searchInputValue = searchInput.value;
     searchInput.value = ''
@@ -11,16 +12,19 @@ const loadPhones = searchInputValue => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchInputValue}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayPhones(data.data.slice(0, 20)))
+        .then(data => displayPhones(data.data.slice(0, 20), searchInputValue))
 };
 
 /* Display phones */
-const displayPhones = phones => {
+const displayPhones = (phones, searchInputValue) => {
+    console.log(searchInputValue.length);
     const phonesContainer = document.getElementById('phones-container');
     const notFoundContainer = document.getElementById('not-found-container');
-    if (phones.length === 0) {
+    if (phones.length === 0 || searchInputValue.length === 0) {
         phonesContainer.textContent = ''
         notFoundContainer.textContent = ''
+        document.getElementById('details-container').textContent = '';
+
         const div = document.createElement('div');
         div.innerHTML = `
             <h2 class="text-center">No Phones Found</h2>
@@ -45,6 +49,7 @@ const displayPhones = phones => {
             phonesContainer.appendChild(div);
         }
     }
+    hideSpinner();
 }
 
 /* Fetch Phone Details */
@@ -120,5 +125,12 @@ const displayPhoneDetails = phoneDetails => {
         </div>
      `;
     detailsContainer.appendChild(detailsDiv);
+}
 
+const showSpinner = () => {
+    document.getElementById('spinner').style.display = 'block';
+    document.getElementById('phones-container').textContent = ''
+}
+const hideSpinner = () => {
+    document.getElementById('spinner').style.display = 'none';
 }
