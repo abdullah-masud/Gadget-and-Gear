@@ -67,6 +67,7 @@ const displayPhoneDetails = phoneDetails => {
         sensorDiv.appendChild(li);
     };
     const detailsDiv = document.createElement('div');
+    detailsDiv.classList.add('details')
     detailsDiv.innerHTML = `
         <div class="card mb-3 details-body ">
             <div class="row g-0">
@@ -75,11 +76,13 @@ const displayPhoneDetails = phoneDetails => {
                 </div>
                 <div class="col-md-8 ">
                     <div class="card-body text-start ">
-                        <h3 class="card-title">${phoneDetails.brand}</h3>
-                        <h4 class="card-title">${phoneDetails.name}</h4>
+                        <div class="brand-details rounded-3 ps-3  py-2">
+                            <h3 class="card-title">${phoneDetails.brand}</h3>
+                            <h4 class="card-title">${phoneDetails.name}</h4>
+                        </div>
                         <br>
 
-                        <div class="border features text-black rounded-3 ps-3 py-2">
+                        <div class="border features text-black rounded-3 ps-3  py-2">
                             <h4 class="fw-bold">Main Features</h3>
                             <p><span class="fw-bold">Storage:</span> ${phoneDetails.mainFeatures.storage}</p>
                             <p><span class="fw-bold">Display Size:</span> ${phoneDetails.mainFeatures.displaySize}</p>
@@ -103,12 +106,12 @@ const displayPhoneDetails = phoneDetails => {
                             Others
                             </button>
                             <ul class="dropdown-menu  p-4 text-start">
-                                <li>WLAN: ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.WLAN : "Not Found" }</li>
-                                <li>Bluetooth: ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Bluetooth : "Not Found" }</li>
-                                <li>GPS: ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.GPS : "Not Found" }</li>
-                                <li>NFC: ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.NFC : "Not Found" }</li>
-                                <li>Radio: ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Radio : "Not Found" }</li>
-                                <li>USB: ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.USB : "Not Found" }</li>
+                                <li><span class="fw-bold">WLAN:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.WLAN : "Not Found" }</li>
+                                <li><span class="fw-bold">Bluetooth:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Bluetooth : "Not Found" }</li>
+                                <li><span class="fw-bold">GPS:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.GPS : "Not Found" }</li>
+                                <li><span class="fw-bold">NFC:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.NFC : "Not Found" }</li>
+                                <li><span class="fw-bold">Radio:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Radio : "Not Found" }</li>
+                                <li><span class="fw-bold">USB:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.USB : "Not Found" }</li>
                             </ul>
                         </div>
                     </div>
