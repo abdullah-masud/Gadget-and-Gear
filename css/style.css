@@ -16,17 +16,23 @@
         border: none;
     }
     
+    .main-feature {
+        padding-top: 40px;
+    }
+    
     .features {
         background-color: rgb(195, 226, 220);
     }
     
     .details {
-        /* border: 1px solid red; */
         margin-bottom: 30px;
-        /* background-color: paleturquoise; */
     }
     
     .brand-details {
+        background-color: rgb(195, 226, 220);
+    }
+    
+    .relase-date {
         background-color: rgb(195, 226, 220);
     }
     
@@ -41,8 +47,11 @@
         }
         .pictures {
             /* border: 1px solid red; */
-            padding: 50px;
+            padding: 20px;
             width: 50%;
             height: auto;
+        }
+        .main-feature {
+            padding-top: 0px;
         }
     }

@@ -74,12 +74,12 @@ const displayPhoneDetails = phoneDetails => {
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add('details')
     detailsDiv.innerHTML = `
-        <div class="card mb-3 ">
+        <div class="card mb-3">
             <div class="row g-0">
-                <div class="col-md-4 d-flex align-items-center">
+                <div class="col-md-4 d-flex align-items-center  p-3">
                     <img src="${phoneDetails.image}" class="w-100 rounded-start pictures" alt="...">
                 </div>
-                <div class="col-md-8 ">
+                <div class="col-md-8  main-feature">
                     <div class="card-body text-start">
                         <div class="brand-details rounded-3 ps-3  py-2">
                             <h2 class="card-title">${phoneDetails.brand}</h2>
@@ -88,39 +88,45 @@ const displayPhoneDetails = phoneDetails => {
                         <br>
 
                         <!-- Main Feature -->
-                        <div class="border features text-black rounded-3 ps-3  py-2">
+                        <div class="border features text-black rounded-3 ps-3 py-2">
                             <h4 class="fw-bold">Main Features</h3>
                             <p><span class="fw-bold">Storage:</span> ${phoneDetails.mainFeatures.storage}</p>
                             <p><span class="fw-bold">Display Size:</span> ${phoneDetails.mainFeatures.displaySize}</p>
                             <p><span class="fw-bold">Chipset:</span> ${phoneDetails.mainFeatures.chipSet}</p>
                             <p><span class="fw-bold">Memory:</span> ${phoneDetails.mainFeatures.memory}</p>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Sensors
-                                </button>
-                                <ul class="dropdown-menu p-4">
-                                    ${sensorDiv.innerHTML}   
-                                </ul>
+                            
+                            <div class="d-flex">
+                                <div class="dropdown me-2">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sensors
+                                    </button>
+                                    <ul class="dropdown-menu p-4">
+                                        ${sensorDiv.innerHTML}   
+                                    </ul>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Others
+                                    </button>
+                                    <ul class="dropdown-menu  p-4 text-start">
+                                        <li><span class="fw-bold">WLAN:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.WLAN : "Not Found" }</li>
+                                        <li><span class="fw-bold">Bluetooth:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Bluetooth : "Not Found" }</li>
+                                        <li><span class="fw-bold">GPS:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.GPS : "Not Found" }</li>
+                                        <li><span class="fw-bold">NFC:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.NFC : "Not Found" }</li>
+                                        <li><span class="fw-bold">Radio:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Radio : "Not Found" }</li>
+                                        <li><span class="fw-bold">USB:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.USB : "Not Found" }</li>
+                                    </ul>
+                                </div>
                             </div>
+
                         </div>
                         <br>
                         
-                        <h4>${phoneDetails.releaseDate ? phoneDetails.releaseDate: "NO Release Date Given"}</h4>
+                        <h4 class="ps-3  py-2 relase-date rounded-3">${phoneDetails.releaseDate ? phoneDetails.releaseDate: "NO Release Date Given"}</h4>
                         <br>
                         
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                            Others
-                            </button>
-                            <ul class="dropdown-menu  p-4 text-start">
-                                <li><span class="fw-bold">WLAN:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.WLAN : "Not Found" }</li>
-                                <li><span class="fw-bold">Bluetooth:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Bluetooth : "Not Found" }</li>
-                                <li><span class="fw-bold">GPS:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.GPS : "Not Found" }</li>
-                                <li><span class="fw-bold">NFC:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.NFC : "Not Found" }</li>
-                                <li><span class="fw-bold">Radio:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Radio : "Not Found" }</li>
-                                <li><span class="fw-bold">USB:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.USB : "Not Found" }</li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
