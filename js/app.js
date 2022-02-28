@@ -17,7 +17,6 @@ const loadPhones = searchInputValue => {
 
 /* Display phones */
 const displayPhones = (phones, searchInputValue) => {
-    console.log(searchInputValue.length);
     const phonesContainer = document.getElementById('phones-container');
     const notFoundContainer = document.getElementById('not-found-container');
     if (phones.length === 0 || searchInputValue.length === 0) {
@@ -48,6 +47,7 @@ const displayPhones = (phones, searchInputValue) => {
         `;
             phonesContainer.appendChild(div);
         }
+        notFoundContainer.textContent = ''
     }
     hideSpinner();
 }
@@ -74,19 +74,20 @@ const displayPhoneDetails = phoneDetails => {
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add('details')
     detailsDiv.innerHTML = `
-        <div class="card mb-3 details-body ">
+        <div class="card mb-3 ">
             <div class="row g-0">
                 <div class="col-md-4 d-flex align-items-center">
-                    <img src="${phoneDetails.image}" class="w-100 rounded-start" alt="...">
+                    <img src="${phoneDetails.image}" class="w-100 rounded-start pictures" alt="...">
                 </div>
                 <div class="col-md-8 ">
-                    <div class="card-body text-start ">
+                    <div class="card-body text-start">
                         <div class="brand-details rounded-3 ps-3  py-2">
-                            <h3 class="card-title">${phoneDetails.brand}</h3>
-                            <h4 class="card-title">${phoneDetails.name}</h4>
+                            <h2 class="card-title">${phoneDetails.brand}</h2>
+                            <h3 class="card-title">${phoneDetails.name}</h3>
                         </div>
                         <br>
 
+                        <!-- Main Feature -->
                         <div class="border features text-black rounded-3 ps-3  py-2">
                             <h4 class="fw-bold">Main Features</h3>
                             <p><span class="fw-bold">Storage:</span> ${phoneDetails.mainFeatures.storage}</p>
@@ -103,6 +104,7 @@ const displayPhoneDetails = phoneDetails => {
                             </div>
                         </div>
                         <br>
+                        
                         <h4>${phoneDetails.releaseDate ? phoneDetails.releaseDate: "NO Release Date Given"}</h4>
                         <br>
                         
