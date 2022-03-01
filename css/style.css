@@ -1,84 +1,88 @@
-   #spinner {
-       display: none;
-   }
-   
-   #phones-container {
-       display: grid;
-       grid-template-columns: repeat(3, 1fr);
-       grid-column-gap: 20px;
-       grid-row-gap: 20px;
-   }
-   
-   .card {
-       text-align: center;
-       border-radius: 10px;
-       padding-top: 13px;
-       border: none;
-   }
-   
-   .main-feature {
-       padding-top: 40px;
-   }
-   
-   .features {
-       background-color: rgb(195, 226, 220);
-   }
-   
-   .details {
-       margin-bottom: 30px;
-       border: 1px solid rgba(241, 225, 225, 0.829);
-       border-radius: 10px;
-   }
-   
-   .brand-details {
-       background-color: rgb(195, 226, 220);
-   }
-   
-   .sensor-ul {
-       list-style: none;
-       padding: 5px 10px;
-       padding-right: 30px;
-   }
-   
-   .sensor-ul li::before {
-       content: "\2022";
-       color: black;
-       display: inline-block;
-       width: 1em;
-       margin-left: -1em;
-   }
-   
-   .others-container {
-       width: 363px;
-       padding: 15px;
-   }
-   
-   .relase-date {
-       background-color: rgb(195, 226, 220);
-   }
-   /* -------------------------------
+  /* Spinner Styles */
+  
+  #spinner {
+      display: none;
+  }
+  /* Phones Container Styles */
+  
+  #phones-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+  }
+  
+  .card {
+      text-align: center;
+      border-radius: 10px;
+      padding-top: 13px;
+      border: none;
+  }
+  /* Details Styles */
+  
+  .details {
+      margin-bottom: 30px;
+      border: 1px solid rgba(241, 225, 225, 0.829);
+      border-radius: 10px;
+  }
+  
+  .main-feature {
+      padding-top: 25px;
+  }
+  
+  .features {
+      background-color: rgb(195, 226, 220);
+  }
+  
+  .brand-details {
+      background-color: rgb(195, 226, 220);
+  }
+  
+  .sensor-ul {
+      list-style: none;
+      padding: 5px 10px;
+      padding-right: 30px;
+  }
+  
+  .sensor-ul li::before {
+      content: "\2022";
+      color: black;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+  }
+  
+  .others-container {
+      width: 363px;
+      padding: 15px;
+  }
+  
+  .relase-date {
+      background-color: rgb(195, 226, 220);
+  }
+  /* -------------------------------
         Mobile Responsive Styles 
    -------------------------------*/
-   
-   @media only screen and (max-width: 688px) {
-       body,
-       html {
-           max-width: 100%;
-           overflow-x: hidden;
-       }
-       #phones-container {
-           grid-template-columns: repeat(1, 1fr);
-       }
-       .pictures {
-           /* border: 1px solid red; */
-           padding: 20px;
-           width: 50%;
-           height: auto;
-       }
-       .main-feature {
-           padding-top: 0px;
-       }
-       .others-container {
-           width: 250px;
-       }
-   }
+  
+  @media only screen and (max-width: 688px) {
+      body,
+      html {
+          max-width: 100%;
+          overflow-x: hidden;
+      }
+      #phones-container {
+          grid-template-columns: repeat(1, 1fr);
+      }
+      .pictures {
+          /* border: 1px solid red; */
+          padding: 20px;
+          width: 50%;
+          height: auto;
+      }
+      .main-feature {
+          padding-top: 0px;
+      }
+      .others-container {
+          width: 250px;
+      }
+  }

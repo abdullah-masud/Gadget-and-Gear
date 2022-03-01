@@ -3,7 +3,7 @@ document.getElementById('search-button').addEventListener('click', function() {
     showSpinner();
     const searchInput = document.getElementById('search-input');
     const searchInputValue = searchInput.value;
-    searchInput.value = ''
+    // searchInput.value = ''
     loadPhones(searchInputValue);
 });
 
@@ -42,7 +42,7 @@ const displayPhones = (phones, searchInputValue) => {
                 <h5 class="card-title">${phone.brand}</h5>
                 <h6 class="card-title">${phone.phone_name}</h6>
         
-                <a href="#" class="btn btn-primary mb-0" onclick="loadPhoneDetails('${phone.slug}')">Details</a>
+                <a href="#" class="btn btn-dark mb-0" onclick="loadPhoneDetails('${phone.slug}')">Details</a>
             </div>
         `;
             phonesContainer.appendChild(div);
@@ -91,16 +91,22 @@ const displayPhoneDetails = phoneDetails => {
                         </div>
                         <br>
 
+                        <!-- Release Date -->
+                        <h4 class="ps-3  py-2 relase-date rounded-3">${phoneDetails.releaseDate ? phoneDetails.releaseDate: "NO Release Date Given"}</h4>
+                        <br>
+
                         <!-- Main Feature -->
-                        <div class="border features text-black rounded-3 ps-3 py-2">
+                        <div class="border features text-black rounded-3 ps-3 py-3">
                             <h4 class="fw-bold">Main Features</h3>
                             <p><span class="fw-bold">Storage:</span> ${phoneDetails.mainFeatures.storage}</p>
                             <p><span class="fw-bold">Display Size:</span> ${phoneDetails.mainFeatures.displaySize}</p>
                             <p><span class="fw-bold">Chipset:</span> ${phoneDetails.mainFeatures.chipSet}</p>
                             <p><span class="fw-bold">Memory:</span> ${phoneDetails.mainFeatures.memory}</p>
+
+                            <!-- Sensor dropdown and others dropdown -->
                             <div class="d-flex">
                                 <div class="dropdown me-2">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sensors
                                     </button>
                                     <ul class="dropdown-menu px-4 text-start">
@@ -109,7 +115,7 @@ const displayPhoneDetails = phoneDetails => {
                                 </div>
 
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                                     Others
                                     </button>
                                     <ul class="dropdown-menu others-container text-start ">
@@ -123,13 +129,8 @@ const displayPhoneDetails = phoneDetails => {
                                 </div>
                             </div>
 
-                        </div>
+                        </div>                       
                         <br>
-                        
-                        <h4 class="ps-3  py-2 relase-date rounded-3">${phoneDetails.releaseDate ? phoneDetails.releaseDate: "NO Release Date Given"}</h4>
-                        <br>
-                        
-                        
                     </div>
                 </div>
             </div>
