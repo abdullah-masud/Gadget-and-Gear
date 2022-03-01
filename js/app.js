@@ -66,11 +66,15 @@ const displayPhoneDetails = phoneDetails => {
     detailsContainer.textContent = ''
     const sensors = phoneDetails.mainFeatures.sensors;
     const sensorDiv = document.createElement('div');
+    const sensorUl = document.createElement('ul');
+    sensorUl.classList.add('sensor-ul');
     for (const sensor of sensors) {
-        var li = document.createElement('li');
+        const li = document.createElement('li');
         li.innerText = sensor;
-        sensorDiv.appendChild(li);
+        sensorUl.appendChild(li);
     };
+    sensorDiv.appendChild(sensorUl)
+
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add('details')
     detailsDiv.innerHTML = `
@@ -94,13 +98,12 @@ const displayPhoneDetails = phoneDetails => {
                             <p><span class="fw-bold">Display Size:</span> ${phoneDetails.mainFeatures.displaySize}</p>
                             <p><span class="fw-bold">Chipset:</span> ${phoneDetails.mainFeatures.chipSet}</p>
                             <p><span class="fw-bold">Memory:</span> ${phoneDetails.mainFeatures.memory}</p>
-                            
                             <div class="d-flex">
                                 <div class="dropdown me-2">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sensors
                                     </button>
-                                    <ul class="dropdown-menu p-4">
+                                    <ul class="dropdown-menu px-4 text-start">
                                         ${sensorDiv.innerHTML}   
                                     </ul>
                                 </div>
@@ -109,7 +112,7 @@ const displayPhoneDetails = phoneDetails => {
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                                     Others
                                     </button>
-                                    <ul class="dropdown-menu  p-4 text-start">
+                                    <ul class="dropdown-menu others-container text-start ">
                                         <li><span class="fw-bold">WLAN:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.WLAN : "Not Found" }</li>
                                         <li><span class="fw-bold">Bluetooth:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.Bluetooth : "Not Found" }</li>
                                         <li><span class="fw-bold">GPS:</span> ${phoneDetails.hasOwnProperty('others') ? phoneDetails.others.GPS : "Not Found" }</li>
@@ -135,10 +138,13 @@ const displayPhoneDetails = phoneDetails => {
     detailsContainer.appendChild(detailsDiv);
 }
 
+/* Show Spinner */
 const showSpinner = () => {
     document.getElementById('spinner').style.display = 'block';
     document.getElementById('phones-container').textContent = ''
-}
+};
+
+/* Show Spinner */
 const hideSpinner = () => {
     document.getElementById('spinner').style.display = 'none';
-}
+};
